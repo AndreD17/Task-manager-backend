@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import cors from "cors";
 import rateLimit from "express-rate-limit";
 import compression from "compression";
 import "./cron/checkDueTasks.js";
@@ -22,7 +21,6 @@ const app = express();
 // ✅ Middlewares
 app.use(express.json());
 app.use(helmet());
-app.use(cors());
 app.use(compression());
 
 const limiter = rateLimit({
