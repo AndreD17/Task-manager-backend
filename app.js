@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import cors from "cors";
 import rateLimit from "express-rate-limit";
 import compression from "compression";
 import "./cron/checkDueTasks.js";
@@ -34,6 +35,12 @@ const limiter = rateLimit({
 
   // Apply rate limiting globally
   app.use(limiter);
+
+// ✅ Enable CORS for your frontend domain only
+app.use(cors({
+  origin: "https://task-manager-frontend-8nkw.onrender.com",
+  credentials: true, 
+}));
 
 
 // ✅ Import routes
